@@ -12,7 +12,7 @@ IFS=$'\n\t'
 NEW_USER="ubuntu"
 # If you already have an SSH pubkey on the box (root’s ~/.ssh/authorized_keys),
 # it will be copied to the new user automatically. Otherwise paste one below:
-USER_PUBKEY=""
+USER_PUBKEY="ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID7JTXf7DIPOJpo9nYVxN9b3xrrBYY5mLbsZBdVTQSt/ quinten@lemmalegal.com"
 
 SSH_PORT=22               # Change if you move SSH to a different port
 ALLOW_IPV6="no"           # set to "yes" if you *need* IPv6
