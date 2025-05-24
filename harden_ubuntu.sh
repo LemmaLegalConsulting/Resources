@@ -25,6 +25,12 @@ if ! id "$NEW_USER" &>/dev/null; then
 fi
 usermod -aG sudo "$NEW_USER"
 
+echo "### 1b. Granting password-less sudo to $NEW_USER…"
+SUDO_FILE="/etc/sudoers.d/90-${NEW_USER}-nopasswd"
+echo "${NEW_USER} ALL=(ALL) NOPASSWD:ALL" > "$SUDO_FILE"
+chmod 0440 "$SUDO_FILE"
+visudo -cf "$SUDO_FILE"    # sanity-check; exits non-zero if syntax is wrong
+
 echo "### 2. Installing baseline packages…"
 apt-get update -qq
 apt-get install -y -qq ufw fail2ban unattended-upgrades \
