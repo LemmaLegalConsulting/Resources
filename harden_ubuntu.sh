@@ -58,7 +58,7 @@ UseDNS no
 MaxAuthTries 3
 AllowUsers $NEW_USER
 EOF
-systemctl restart sshd
+systemctl restart ssh || systemctl restart sshd
 
 echo "### 5. Configuring UFW firewall…"
 ufw --force reset
